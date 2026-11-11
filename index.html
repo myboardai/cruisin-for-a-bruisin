@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="img/logo-96.webp" type="image/webp">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="Cruisin' for a Bruisin'">
+<meta property="og:description" content="SF East Bay rock band playing the oldies goldies of the '50s and '60s.">
+<meta property="og:image" content="img/logo.webp">
+<title>Cruisin' for a Bruisin'</title>
+<meta name="description" content="Cruisin' for a Bruisin' — SF East Bay rock band playing the oldies goldies of the 50s and 60s. Book us for your next party, wedding, dance or car show.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Yellowtail&family=Karla:wght@400;600;800&display=swap">
+<style>
+/* Layout: a roadside diner after dark, built around the band's own photos — the drum-head logo
+   leads, a scrapbook of then/now prints, a gear wall, a jukebox, ticket-stub gigs, a diner-menu booking card. */
+:root{
+  --cream:#FFF3DC;
+  --paper:#FFFAF0;
+  --cherry:#D7263D;
+  --cherry-deep:#A3172B;
+  --teal:#22667E;
+  --teal-deep:#174A5E;
+  --mustard:#F4B53F;
+  --ink:#22192B;
+  --ink-soft:#5A4A5E;
+  --pink:#F6A6B2;
+  --mint:#6FB59B;
+  --print:#2A2220;
+  --print-edge:#F2E6CC;
+  --white:#FFFFFF;
+  --display:"Shrikhand","Cooper Black","Georgia",serif;
+  --script:"Yellowtail","Brush Script MT","Segoe Script",cursive;
+  --body:"Karla","Helvetica Neue",Arial,sans-serif;
+  --radius:16px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);font-size:1.05rem;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.1;text-wrap:balance;margin:0}
+h2{font-size:clamp(2rem,5vw,3.1rem);color:var(--cherry)}
+p{margin:0}
+figure{margin:0}
+.eyebrow{font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;color:var(--teal-deep)}
+.sec-head{display:grid;gap:6px;margin-bottom:32px;max-width:60ch}
+section{padding-block:72px}
+
+/* shared photo frame: the one consistent treatment for every band photo */
+.photo{border:3px solid var(--ink);border-radius:var(--radius);overflow:hidden;box-shadow:7px 7px 0 var(--ink);background:var(--ink)}
+.photo img{width:100%;height:100%;object-fit:cover}
+
+.checker{height:28px;background:conic-gradient(var(--ink) 25%,var(--paper) 0 50%,var(--ink) 0 75%,var(--paper) 0) 0 0/28px 28px}
+
+/* buttons & chips */
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:800;text-decoration:none;padding:13px 24px;border-radius:999px;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:transform .15s,box-shadow .15s;font-size:1rem;font-family:var(--body);cursor:pointer}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.btn-red{background:var(--cherry);color:var(--cream)}
+.btn-teal{background:var(--teal);color:var(--cream)}
+.btn-cream{background:var(--paper);color:var(--ink)}
+.chip{background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:4px 14px;font-weight:600;font-size:.92rem}
+
+/* ---------- Nav ---------- */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--ink);color:var(--cream)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px;flex-wrap:wrap}
+.logo{display:inline-flex;align-items:center;gap:10px;font-family:var(--script);font-size:1.7rem;color:var(--pink);text-decoration:none;text-shadow:0 0 10px rgba(246,166,178,.55)}
+nav ul{list-style:none;display:flex;gap:4px 18px;margin:0;padding:0;flex-wrap:wrap;font-weight:600;font-size:.95rem;align-items:center}
+nav ul a{text-decoration:none;opacity:.85}
+nav ul a:hover{opacity:1;color:var(--mustard)}
+nav .book{background:var(--cherry);color:var(--cream);opacity:1;padding:6px 14px;border-radius:999px}
+.logo img{width:40px;height:40px}
+nav .book:hover{background:var(--mustard);color:var(--ink)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(circle at 85% 35%,rgba(111,181,155,.28),transparent 45%),
+  radial-gradient(circle at 5% 95%,rgba(215,38,61,.12),transparent 40%),var(--cream)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;padding-block:48px 64px}
+.hero-copy{min-width:0;display:grid;gap:18px;position:relative;z-index:1}
+.hero h1{font-family:var(--display);font-size:clamp(2.2rem,5.4vw,3.8rem);color:var(--teal-deep);line-height:1.05}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hero .lead{max-width:38ch;font-size:1.15rem}
+.callout{font-weight:600;color:var(--ink-soft)}
+.callout strong{color:var(--cherry);font-size:1.2rem;margin-left:4px;white-space:nowrap}
+.sign{position:relative;justify-self:center;width:min(520px,100%);aspect-ratio:1;display:grid;place-items:center}
+.rays{position:absolute;inset:-14%;border-radius:50%;
+  background:repeating-conic-gradient(from 0deg,rgba(244,181,63,.55) 0 6deg,transparent 6deg 18deg);
+  -webkit-mask:radial-gradient(circle,#000 40%,transparent 70%);mask:radial-gradient(circle,#000 40%,transparent 70%);
+  animation:turn 80s linear infinite}
+.logo-big{position:relative;width:100%;height:auto;filter:drop-shadow(10px 12px 0 var(--ink));transition:transform .4s}
+.sign:hover .logo-big{transform:rotate(-3deg) scale(1.02)}
+@keyframes turn{to{transform:rotate(360deg)}}
+.hero{overflow:hidden}
+
+/* ticker */
+.ticker{background:var(--cherry);color:var(--cream);border-block:4px solid var(--ink);overflow:hidden;white-space:nowrap}
+.ticker-track{display:inline-flex;gap:28px;padding-block:12px;animation:scroll 60s linear infinite;font-family:var(--display);font-size:1.15rem}
+.ticker-track span::after{content:"★";margin-left:28px;color:var(--mustard)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:start}
+.about-grid > *{min-width:0}
+.story{display:grid;gap:16px;max-width:62ch}
+.story .big{font-size:1.25rem;font-weight:600}
+.gigs{display:flex;flex-wrap:wrap;gap:8px}
+.pullquote{font-family:var(--script);font-size:clamp(1.8rem,4vw,2.4rem);color:var(--teal-deep);line-height:1.15}
+.about-side{display:grid;gap:28px}
+.about-side .photo{aspect-ratio:3/2}
+.about-side .photo img{object-position:30% 30%}
+.lineup{background:var(--ink);color:var(--cream);border-radius:var(--radius);padding:24px;display:grid;gap:14px;box-shadow:7px 7px 0 var(--teal)}
+.lineup h3{font-size:1.4rem;color:var(--mustard)}
+.lineup ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
+.lineup li{display:flex;align-items:center;gap:10px;font-weight:600}
+.lineup li::before{content:"♪";flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--cherry);font-size:.9rem}
+.lineup li.wide{grid-column:1/-1}
+.live-badge{border:2px dashed var(--pink);border-radius:12px;padding:12px 14px;font-size:.95rem;color:var(--pink)}
+
+/* ---------- Then & Now (scrapbook) ---------- */
+.history{background:var(--paper);border-top:4px solid var(--ink)}
+.era{display:flex;align-items:center;gap:14px;margin:0 0 22px}
+.era span{font-family:var(--display);font-size:1.4rem;color:var(--cream);background:var(--cherry);border:3px solid var(--ink);border-radius:999px;padding:2px 18px;box-shadow:3px 3px 0 var(--ink)}
+.era.now span{background:var(--teal)}
+.era::after{content:"";flex:1;border-top:3px dashed var(--ink-soft)}
+.then-row{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;margin-bottom:64px;align-items:start}
+.now-row{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;align-items:start}
+.then-row > *,.now-row > *{min-width:0}
+.print{background:var(--print);padding:14px 14px 0;border-radius:4px;box-shadow:10px 10px 0 var(--mustard),0 0 0 3px var(--ink)}
+.print img{border:3px solid var(--print-edge);filter:sepia(.18) contrast(1.04);width:100%;aspect-ratio:4/3;object-fit:cover}
+.print figcaption{color:var(--print-edge);font-size:.92rem;padding:12px 4px 14px;font-style:italic}
+.then-row .print:nth-child(1){transform:rotate(-1.5deg)}
+.then-row .print:nth-child(2){transform:rotate(1.2deg)}
+.polaroid{background:var(--white);padding:12px 12px 0;box-shadow:6px 6px 0 var(--teal),0 0 0 3px var(--ink)}
+.polaroid img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.polaroid figcaption{font-family:var(--script);font-size:1.45rem;color:var(--ink);text-align:center;padding:8px 4px 12px;line-height:1.15}
+.now-row .polaroid:nth-child(1){transform:rotate(-2deg)}
+.now-row .polaroid:nth-child(2){transform:rotate(1.5deg);margin-top:18px}
+.now-row .polaroid:nth-child(3){transform:rotate(-1deg)}
+
+/* ---------- Gear wall ---------- */
+.gear-sec{background:var(--ink);color:var(--cream)}
+.gear-sec h2{color:var(--mustard)}
+.gear-sec .eyebrow{color:var(--pink)}
+.gear{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.gear figure{display:grid;gap:10px}
+.gear .photo{aspect-ratio:1;border-color:var(--cream);box-shadow:6px 6px 0 var(--cherry)}
+.gear figcaption{font-weight:700;font-size:.95rem}
+.gear figcaption small{display:block;font-weight:400;opacity:.75;font-size:.85rem}
+
+/* ---------- Jukebox ---------- */
+.jukebox-sec{background:var(--teal);color:var(--cream)}
+.jukebox-sec h2{color:var(--cream);text-shadow:3px 3px 0 var(--ink)}
+.jukebox-sec .eyebrow{color:var(--mustard)}
+.juke-layout{display:grid;grid-template-columns:260px 1fr;gap:36px;align-items:stretch}
+.juke-layout > *{min-width:0}
+.juke-layout .photo{min-height:100%;box-shadow:8px 8px 0 var(--ink)}
+.jukebox{background:linear-gradient(180deg,var(--cherry) 0,var(--cherry-deep) 100%);border:5px solid var(--ink);border-radius:110px 110px var(--radius) var(--radius);padding:56px 22px 24px;box-shadow:10px 10px 0 var(--ink);position:relative}
+.jukebox::before{content:"";position:absolute;top:14px;left:50%;transform:translateX(-50%);width:min(60%,360px);height:22px;border-radius:999px;
+  background:repeating-linear-gradient(90deg,var(--mustard) 0 14px,var(--pink) 14px 28px,var(--teal) 28px 42px);border:3px solid var(--ink)}
+.display{background:var(--ink);color:var(--mustard);border-radius:12px;padding:12px 16px;margin-bottom:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-weight:800;letter-spacing:.06em;font-size:.95rem;min-height:48px;align-items:center}
+.display #now{color:var(--cream);letter-spacing:0;font-weight:600}
+.strips{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.strip{display:flex;align-items:stretch;background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-radius:6px;cursor:pointer;font:inherit;text-align:left;padding:0;overflow:hidden;transition:transform .12s}
+.strip:hover{transform:translateY(-2px)}
+.strip .code{flex:none;width:44px;display:grid;place-items:center;background:var(--mustard);font-weight:800;font-size:.8rem;border-right:2px solid var(--ink);font-variant-numeric:tabular-nums}
+.strip .t{padding:7px 10px;font-weight:600;font-size:.93rem;line-height:1.25;border-top:3px solid var(--cherry);flex:1;min-width:0}
+.strip.on{background:var(--pink)}
+.strip.on .code{background:var(--cherry);color:var(--cream)}
+.juke-foot{text-align:center;margin-top:18px;font-family:var(--script);font-size:1.6rem;color:var(--cream)}
+
+/* ---------- Listen ---------- */
+.listen-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:22px}
+.fortyfive{display:grid;gap:12px;justify-items:center;text-align:center}
+.disc{width:150px;aspect-ratio:1;max-width:100%;border-radius:50%;
+  background:radial-gradient(circle,var(--cream) 0 13%,var(--c,var(--teal)) 13.5% 34%,transparent 34.5%),repeating-radial-gradient(circle,#1a1420 0 2px,#2c2333 2px 4px);
+  box-shadow:5px 5px 0 var(--ink);transition:transform .6s}
+.fortyfive:hover .disc{transform:rotate(200deg)}
+.fortyfive h3{font-size:1.15rem}
+.fortyfive p{font-size:.85rem;color:var(--ink-soft);font-weight:600;text-transform:uppercase;letter-spacing:.1em}
+.listen-cta{margin-top:36px;display:flex;justify-content:center}
+
+/* ---------- Shows ---------- */
+.shows-sec{background:var(--ink);color:var(--cream)}
+.shows-sec h2{color:var(--pink)}
+.shows-sec .eyebrow{color:var(--mustard)}
+.shows-layout{display:grid;grid-template-columns:1fr 260px;gap:36px;align-items:start}
+.shows-layout > *{min-width:0}
+.stubs{display:grid;gap:18px}
+.stub{display:grid;grid-template-columns:120px 1fr;background:var(--paper);color:var(--ink);border-radius:14px;overflow:hidden}
+.stub > *{min-width:0}
+.stub .date{background:var(--mustard);display:grid;place-content:center;text-align:center;padding:16px 8px;border-right:3px dashed var(--ink);font-variant-numeric:tabular-nums}
+.stub .date b{font-family:var(--display);font-size:2.3rem;line-height:1;font-weight:400}
+.stub .date span{font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem}
+.stub .info{padding:18px 22px;display:grid;gap:4px}
+.stub h3{font-size:1.3rem;color:var(--cherry)}
+.stub .where{font-weight:700}
+.stub .time{display:inline-block;background:var(--teal);color:var(--cream);font-weight:800;font-size:.8rem;border-radius:999px;padding:2px 10px;justify-self:start}
+.stub .note{color:var(--ink-soft);font-size:.95rem}
+.flyer{display:grid;gap:10px}
+.flyer .photo{border-color:var(--cream);box-shadow:6px 6px 0 var(--cherry);transform:rotate(2deg)}
+.flyer figcaption{font-size:.9rem;opacity:.8;text-align:center}
+.next-up{margin-top:28px;border:3px dashed var(--mustard);border-radius:var(--radius);padding:20px 24px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between}
+.next-up p{font-size:1.1rem;max-width:52ch}
+.next-up strong{color:var(--mustard)}
+
+/* ---------- Booking ---------- */
+.book-grid{display:grid;grid-template-columns:300px 1fr 1fr;gap:36px;align-items:start}
+.book-grid > *{min-width:0}
+.book-copy{display:grid;gap:16px}
+.charity{background:var(--pink);border:3px solid var(--ink);border-radius:var(--radius);padding:20px;display:grid;gap:6px}
+.charity h3{font-size:1.3rem}
+.menu{background:var(--paper);border:4px solid var(--ink);border-radius:var(--radius);padding:26px;box-shadow:10px 10px 0 var(--cherry);display:grid;gap:18px}
+.menu h3{font-family:var(--script);font-size:2.3rem;color:var(--cherry);text-align:center}
+.row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.row .k{font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:.82rem}
+.row .dots{flex:1;border-bottom:3px dotted var(--ink-soft);min-width:30px;transform:translateY(-4px)}
+.row .v{font-weight:800;font-size:1.15rem;user-select:all;word-break:break-word}
+.copy{font:inherit;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;border:2px solid var(--ink);background:var(--mustard);border-radius:999px;padding:3px 10px;cursor:pointer}
+.copy.done{background:var(--teal);color:var(--cream)}
+.menu .btns{justify-content:center}
+.pay{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.pay .chip{background:var(--cream)}
+.we-accept{text-align:center;color:var(--ink-soft)}
+
+
+/* added: photo-led pieces */
+.then-row .print:nth-child(3){transform:rotate(1deg)}
+.then-row .print:nth-child(4){transform:rotate(-1.4deg)}
+.now-row{row-gap:44px}
+.now-row .polaroid:nth-child(4){transform:rotate(1.5deg)}
+.now-row .polaroid:nth-child(5){transform:rotate(-1.5deg);margin-top:18px}
+.now-row .polaroid:nth-child(6){transform:rotate(2deg)}
+.gear .photo.cutout{background:var(--paper)}
+.gear .photo.cutout img{object-fit:contain;padding:10px}
+.listen-layout{display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:center}
+.listen-layout > *{min-width:0}
+.dance{display:grid;gap:10px;transform:rotate(-2deg)}
+.dance .photo{aspect-ratio:9/14}
+.dance figcaption{font-family:var(--script);font-size:1.4rem;text-align:center;color:var(--teal-deep)}
+.flyers{display:grid;gap:28px}
+.flyers .flyer:nth-child(2) .photo{transform:rotate(-2deg)}
+.stage-panel{position:relative;align-self:stretch;min-height:440px;border:3px solid var(--ink);border-radius:var(--radius);overflow:hidden;box-shadow:7px 7px 0 var(--ink);background:var(--pink)}
+.stage-panel .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
+.stage-panel .guy{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:auto;height:92%;max-width:none;filter:drop-shadow(6px 6px 0 rgba(34,25,43,.35))}
+
+/* ---------- Footer ---------- */
+footer{background:var(--ink);color:var(--cream)}
+footer .wrap{padding-block:40px;display:grid;gap:20px;justify-items:center;text-align:center}
+.social{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.social a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:800;border:2px solid var(--cream);border-radius:999px;padding:8px 18px}
+.social a:hover{background:var(--cream);color:var(--ink)}
+.social svg{width:18px;height:18px;fill:currentColor}
+.foot-logo{width:150px;height:auto}
+footer .sign{font-family:var(--script);font-size:2.4rem;color:var(--pink);text-shadow:0 0 12px rgba(246,166,178,.5)}
+footer small{opacity:.7}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .book-grid{grid-template-columns:1fr 1fr}
+  .book-grid > .stage-panel{grid-column:1/-1;min-height:380px}
+}
+@media (max-width:820px){
+  .hero .wrap,.about-grid,.then-row,.book-grid,.juke-layout,.shows-layout,.listen-layout{grid-template-columns:1fr}
+  .dance{max-width:260px;justify-self:center;transform:none}
+  .flyers{grid-template-columns:1fr 1fr}
+  .sign{width:min(360px,88%)}
+  .hero-copy{text-align:center;justify-items:center}
+  .hero .btns{justify-content:center}
+  .now-row{grid-template-columns:1fr 1fr}
+  .gear{grid-template-columns:1fr 1fr}
+  .juke-layout .photo{display:none}
+  .print,.polaroid,.flyers .photo{transform:none!important;margin-top:0!important}
+  nav ul{font-size:.88rem;gap:4px 12px}
+}
+@media (max-width:520px){
+  .now-row{grid-template-columns:1fr}
+  .stub{grid-template-columns:92px 1fr}
+  .stub .date b{font-size:1.8rem}
+  .jukebox{border-radius:70px 70px var(--radius) var(--radius);padding:48px 12px 18px}
+  .strips{grid-template-columns:1fr}
+  .lineup ul{grid-template-columns:1fr}
+  nav ul li:not(.keep){display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .ticker-track,.rays{animation:none}
+  .btn,.strip,.disc{transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="img/logo-96.webp" alt="" width="40" height="40">Cruisin' for a Bruisin'</a>
+    <ul>
+      <li><a href="#about">The Band</a></li>
+      <li><a href="#history">Then &amp; Now</a></li>
+      <li><a href="#jukebox">Jukebox</a></li>
+      <li><a href="#shows">Shows</a></li>
+      <li class="keep"><a class="book" href="#book">Book Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="sign">
+      <div class="rays" aria-hidden="true"></div>
+      <img class="logo-big" src="img/logo.webp" alt="Cruisin' for a Bruisin' — Rockin' hits from the 50s and 60s" width="900" height="900">
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow">SF East Bay rock band · the oldies goldies</p>
+      <h1><span class="sr">Cruisin' for a Bruisin': </span>Musical memories from the '50s &amp; '60s</h1>
+      <p class="lead">Let the music take you away at your next event. Live band, real voices, and a dance floor that won't stay empty.</p>
+      <div class="btns">
+        <a class="btn btn-red" href="#book">Book the band</a>
+        <a class="btn btn-cream" href="#jukebox">See the song list</a>
+      </div>
+      <p class="callout">Call to book <strong>(925) 406-6050</strong></p>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="story">
+      <div class="sec-head">
+        <p class="eyebrow">Born in San Ramon, CA</p>
+        <h2>Forty years of band brothers</h2>
+      </div>
+      <p class="big">It started with three songs at a church talent show. We probably didn't have the most talent in the room, but the folks listening loved it, so we played those three songs over and over.</p>
+      <p>That was 40 years ago, and we've been making music together ever since. These days we don't call ourselves band members. We're band brothers.</p>
+      <p>We've played every kind of venue you can think of, and we'd love to make your next gathering cool, fun and nostalgic.</p>
+      <div class="gigs" aria-label="Events we play">
+        <span class="chip">Birthday parties</span><span class="chip">Weddings</span><span class="chip">Dances</span><span class="chip">Car shows</span><span class="chip">Community events</span>
+      </div>
+      <p class="pullquote">"Don't leave your best girl home!"</p>
+    </div>
+    <div class="about-side">
+      <div class="photo"><img src="img/singer.jpg" alt="A band member in a Hawaiian shirt singing and playing a black Fender Stratocaster on stage" width="1200" height="795" loading="lazy"></div>
+      <aside class="lineup" aria-label="The lineup">
+        <h3>The lineup</h3>
+        <ul>
+          <li>Drums</li>
+          <li>Lead guitar</li>
+          <li>Rhythm guitar</li>
+          <li>Bass guitar</li>
+          <li class="wide">Keys, sax, guitar &amp; a little bass</li>
+        </ul>
+        <p class="live-badge"><strong>100% live.</strong> Real music and live voices. Nothing sampled, recorded, looped or overlaid.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="history" id="history" aria-labelledby="history-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">From the scrapbook</p>
+      <h2 id="history-h">Then &amp; Now</h2>
+      <p>Same band brothers, a few decades apart. The Hawaiian shirts never left.</p>
+    </div>
+
+    <p class="era"><span>Then</span></p>
+    <div class="then-row">
+      <figure class="print">
+        <img src="img/then-stage.jpg" alt="Black-and-white photo of the band in the early days: four guitarists in front, drummer behind, keyboard and saxophone at left" width="768" height="630" loading="lazy">
+        <figcaption>On stage in the early days: four guitars, a drum kit and a sax on its stand.</figcaption>
+      </figure>
+      <figure class="print">
+        <img src="img/then-outdoor.jpg" alt="Faded color photo of the band on an outdoor stage, sax player at left, drummer behind, two guitarists at right" width="1104" height="808" loading="lazy">
+        <figcaption>An outdoor stage, sax up front and the red guitar already in the lineup.</figcaption>
+      </figure>
+      <figure class="print">
+        <img src="img/then-mural.jpg" alt="Color photo of the band in matching blue-and-white Hawaiian shirts, playing in front of a Golden Gate Bridge mural" width="600" height="434" loading="lazy">
+        <figcaption>Matching shirts in front of the Golden Gate mural.</figcaption>
+      </figure>
+      <figure class="print">
+        <img src="img/then-ties.jpg" alt="Grainy photo of two band members in white shirts and ties playing guitars in a hall" width="542" height="360" loading="lazy">
+        <figcaption>White shirts, skinny ties and a pair of guitars.</figcaption>
+      </figure>
+    </div>
+
+    <p class="era now"><span>Now</span></p>
+    <div class="now-row">
+      <figure class="polaroid">
+        <img src="img/now-gazebo.jpg" alt="The band playing under a town-square gazebo on a sunny day" width="800" height="450" loading="lazy">
+        <figcaption>Town square gazebo</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="img/now-hangar.jpg" alt="The band playing inside an airplane hangar beside a yellow vintage trainer plane" width="799" height="535" loading="lazy">
+        <figcaption>Live in the hangar</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="img/now-street.jpg" alt="The band today, five members posing with guitars and drumsticks at an outdoor gig" width="799" height="533" loading="lazy">
+        <figcaption>Still at it, 40 years on</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="img/now-dusk.jpg" alt="Band members playing an outdoor evening show, guitars and a seated guitarist in a cowboy hat" width="799" height="529" loading="lazy">
+        <figcaption>Evening set under the lights</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="img/now-lawn.jpg" alt="The band on a lawn with a smiling fan joining the singer at the microphone" width="798" height="449" loading="lazy">
+        <figcaption>A fan joins in</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="img/now-theona.jpg" alt="The band playing outdoors in Rocklin with colorful pennant bunting strung in front" width="800" height="600" loading="lazy">
+        <figcaption>Shake, Rattle &amp; Roll in Rocklin</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="gear-sec" id="gear" aria-labelledby="gear-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The real thing</p>
+      <h2 id="gear-h">Vintage gear, live sound</h2>
+      <p>Hollow-bodies, a Bigsby or two and a tube amp turned up. This is the sound of the records you grew up on.</p>
+    </div>
+    <div class="gear">
+      <figure><div class="photo"><img src="img/drumhead.jpg" alt="The band's bass drum head printed with the Cruisin' for a Bruisin' script" width="764" height="928" loading="lazy"></div><figcaption>The kick drum<small>our name, front and center</small></figcaption></figure>
+      <figure><div class="photo"><img src="img/gretsch-amp.jpg" alt="A red Gretsch hollow-body guitar on a stand beside a Fender Pro Reverb amp" width="600" height="800" loading="lazy"></div><figcaption>Gretsch hollow-body<small>with a Fender Pro Reverb</small></figcaption></figure>
+      <figure><div class="photo"><img src="img/es335-amp.jpg" alt="A cherry red Gibson ES-335 with a Bigsby tailpiece beside a Fender amp" width="600" height="800" loading="lazy"></div><figcaption>Gibson ES-335<small>cherry red, Bigsby vibrato</small></figcaption></figure>
+      <figure><div class="photo"><img src="img/coronado.jpg" alt="A red Fender Coronado hollow-body bass resting on its case in the grass" width="581" height="799" loading="lazy"></div><figcaption>Fender Coronado Bass II<small>the hollow-body bass</small></figcaption></figure>
+      <figure><div class="photo"><img src="img/falcon-lespaul.jpg" alt="A white Gretsch Falcon and a gold Gibson Les Paul side by side on a guitar stand" width="800" height="600" loading="lazy"></div><figcaption>Gretsch Falcon &amp; Les Paul<small>side by side backstage</small></figcaption></figure>
+      <figure><div class="photo"><img src="img/sax.jpg" alt="Close-up of a brass saxophone played by a band member in a blue Hawaiian shirt" width="1200" height="800" loading="lazy"></div><figcaption>The sax<small>played by our multi-talented keyboardist</small></figcaption></figure>
+      <figure><div class="photo cutout"><img src="img/rickenbacker.webp" alt="A black Rickenbacker 4003 electric bass" width="360" height="1233" loading="lazy"></div><figcaption>Rickenbacker bass<small>jetglo black</small></figcaption></figure>
+      <figure><div class="photo"><img src="img/guild.jpg" alt="Headstock of a Guild 12-string guitar" width="533" height="800" loading="lazy"></div><figcaption>Guild 12-string<small>for that jangle</small></figcaption></figure>
+      <figure><div class="photo"><img src="img/gretsch-orange.jpg" alt="Close-up of an orange flame Gretsch guitar with gold pickguard and Bigsby" width="600" height="800" loading="lazy"></div><figcaption>Orange Gretsch<small>gold pickguard and Bigsby</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="checker" aria-hidden="true"></div>
+
+<section class="jukebox-sec" id="jukebox">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Drop a nickel in</p>
+      <h2>The Jukebox</h2>
+      <p>A taste of what we play. Pick a favorite and tell us when you book.</p>
+    </div>
+    <div class="juke-layout">
+      <div class="photo"><img src="img/bass-wood.jpg" alt="" width="381" height="683" loading="lazy"></div>
+      <div class="jukebox">
+        <div class="display" aria-live="polite"><span>NOW SELECTING</span><span id="now">Tap a title strip</span></div>
+        <div class="strips" id="strips"></div>
+        <p class="juke-foot">…and many more!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="checker" aria-hidden="true"></div>
+
+<section id="listen">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Turn on your speakers</p>
+      <h2>Hear us play</h2>
+      <p>A few samples of what we do. Get ready to dance!</p>
+    </div>
+    <div class="listen-layout">
+    <figure class="dance"><div class="photo"><img src="img/dancers.jpg" alt="A couple swing dancing on a brick plaza while the band plays at the gazebo behind them" width="450" height="800" loading="lazy"></div><figcaption>Proof the dance floor fills up</figcaption></figure>
+    <div class="listen-main">
+    <div class="listen-grid">
+      <div class="fortyfive"><div class="disc" style="--c:var(--teal)"></div><h3>Walk Don't Run</h3><p>Instrumental</p></div>
+      <div class="fortyfive"><div class="disc" style="--c:var(--cherry)"></div><h3>All Shook Up</h3><p>Rock 'n' roll</p></div>
+      <div class="fortyfive"><div class="disc" style="--c:var(--mustard)"></div><h3>California Sun</h3><p>Surf</p></div>
+      <div class="fortyfive"><div class="disc" style="--c:var(--pink)"></div><h3>I Saw Her Standing There</h3><p>British invasion</p></div>
+      <div class="fortyfive"><div class="disc" style="--c:var(--teal-deep)"></div><h3>Wear My Ring Around Your Neck</h3><p>Rockabilly</p></div>
+    </div>
+    <div class="listen-cta">
+      <a class="btn btn-red" href="https://www.youtube.com/channel/UCOU_YM8gVF-Dq3ZalZUo4PA" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+    </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="shows-sec" id="shows">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Where we've been rockin'</p>
+      <h2>Recent shows</h2>
+    </div>
+    <div class="shows-layout">
+      <div class="stubs">
+        <article class="stub">
+          <div class="date"><span>Aug</span><b>29</b><span>2026</span></div>
+          <div class="info"><h3>Street Heat Car Show</h3><p class="where">Copperopolis Town Square, CA</p><span class="time">8am – 11am</span></div>
+        </article>
+        <article class="stub">
+          <div class="date"><span>Sep</span><b>12</b><span>2026</span></div>
+          <div class="info"><h3>Annual Shake, Rattle &amp; Roll</h3><p class="where">2831 Theona Way, Rocklin, CA</p><span class="time">6pm – 8:30pm</span><p class="note">Free food, fun, games and dancing.</p></div>
+        </article>
+        <article class="stub">
+          <div class="date"><span>Oct</span><b>22</b><span>2026</span></div>
+          <div class="info"><h3>Trunk or Treat at The Pines</h3><p class="where">The Pines Senior Community, 500 W Ranch View Dr, Rocklin, CA</p><span class="time">6pm – 8pm</span><p class="note">The whole neighborhood joins the seniors for trick-or-treating and dancing.</p></div>
+        </article>
+      </div>
+      <div class="flyers">
+        <figure class="flyer">
+          <div class="photo"><img src="img/flyer-street-heat.jpg" alt="Flyer for the 3rd annual Street Heat Car Show in Copperopolis, Saturday August 29, with live music by Cruisin' for a Bruisin'" width="517" height="799" loading="lazy"></div>
+          <figcaption>Street Heat Car Show</figcaption>
+        </figure>
+        <figure class="flyer">
+          <div class="photo"><img src="img/flyer-drive-in.jpg" alt="Poster for Drive-in Night at the San Ramon building, featuring live music by Cruisin' for a Bruisin'" width="538" height="800" loading="lazy"></div>
+          <figcaption>Drive-in Night, San Ramon</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="next-up">
+      <p><strong>New dates coming soon.</strong> Want your event on this list? Give us a call.</p>
+      <a class="btn btn-red" href="#book">Book a date</a>
+    </div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap book-grid">
+    <div class="stage-panel" aria-hidden="false"><img class="bg" src="img/cream-guitar.jpg" alt="" width="370" height="658" loading="lazy"><img class="guy" src="img/guitarist.webp" alt="A smiling band member playing a cherry red Gibson ES-335" width="640" height="936" loading="lazy"></div>
+    <div class="book-copy">
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="eyebrow">Booking &amp; pricing</p>
+        <h2>Let's get your party rockin'</h2>
+      </div>
+      <p>Call or email us with your date, venue and the kind of crowd you're expecting. We'll get back to you with pricing and availability.</p>
+      <div class="charity">
+        <h3>Got a good cause?</h3>
+        <p>We've played a ton of gigs for charity. Tell us what you've got going on. We may be able to help.</p>
+      </div>
+    </div>
+    <div class="menu">
+      <h3>Book the Band</h3>
+      <div class="row"><span class="k">Call</span><span class="dots"></span><span class="v" id="phone">(925) 406-6050</span><button class="copy" type="button" data-copy="phone">Copy</button></div>
+      <div class="row"><span class="k">Email</span><span class="dots"></span><span class="v" id="email">cruisinfab@gmail.com</span><button class="copy" type="button" data-copy="email">Copy</button></div>
+      <div class="btns">
+        <a class="btn btn-red" href="tel:+19254066050">Call now</a>
+        <a class="btn btn-teal" href="mailto:cruisinfab@gmail.com?subject=Booking%20Cruisin'%20for%20a%20Bruisin'">Email us</a>
+      </div>
+      <p class="eyebrow we-accept">We accept</p>
+      <div class="pay"><span class="chip">Cash</span><span class="chip">Venmo</span><span class="chip">Zelle</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="checker" aria-hidden="true"></div>
+
+<footer>
+  <div class="wrap">
+    <img class="foot-logo" src="img/logo.webp" alt="Cruisin' for a Bruisin' logo" width="900" height="900" loading="lazy">
+    <div class="social">
+      <a href="https://www.youtube.com/channel/UCOU_YM8gVF-Dq3ZalZUo4PA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.1V8.9l5.8 3.1-5.8 3.1Z"/></svg>YouTube</a>
+      <a href="https://www.facebook.com/profile.php?id=61591149713183" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V14h2.7v8h3.3Z"/></svg>Facebook</a>
+      <a href="https://www.instagram.com/cruisinfab" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4ZM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4ZM21.9 7.9c-.1-1.6-.4-3-1.6-4.2S17.7 2.2 16.1 2.1c-1.6-.1-6.6-.1-8.2 0-1.6.1-3 .4-4.2 1.6S2.2 6.3 2.1 7.9c-.1 1.6-.1 6.6 0 8.2.1 1.6.4 3 1.6 4.2s2.6 1.5 4.2 1.6c1.6.1 6.6.1 8.2 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.1-1.6.1-6.6 0-8.2Zm-2.1 10a3.2 3.2 0 0 1-1.8 1.8c-1.3.5-4.3.4-5.6.4s-4.4.1-5.6-.4a3.2 3.2 0 0 1-1.8-1.8c-.5-1.3-.4-4.3-.4-5.6s-.1-4.4.4-5.6a3.2 3.2 0 0 1 1.8-1.8c1.3-.5 4.3-.4 5.6-.4s4.4-.1 5.6.4a3.2 3.2 0 0 1 1.8 1.8c.5 1.3.4 4.3.4 5.6s.1 4.4-.4 5.6Z"/></svg>Instagram</a>
+    </div>
+    <small>SF East Bay, California · (925) 406-6050 · cruisinfab@gmail.com</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var songs=["California Sun","Rock Around the Clock","I'm a Believer","Come Go with Me","Surfin' USA","Let's Twist Again","Great Balls of Fire","Falling in Love","La Bamba / Twist and Shout","Roll Over Beethoven","Burning Love","That's All Right Mama / Night Train","Do You Want to Dance?","I Get Around","Pipeline","Lonesome Me","Secret Agent Man","Surfin' Safari","Johnny B. Goode","Runaway","Shut Down","409","Runaround Sue","Wear My Ring Around Your Neck","Daydream Believer","Sloop John B","Lost in the '50s Tonight","Wooly Bully","All Shook Up","Blue Suede Shoes","Walk of Life","This Boy","Walk Don't Run","Little GTO / Hey Little Cobra","Under the Boardwalk","No Particular Place to Go","Summertime Blues","Stand by Me","Carol","Last Kiss","I Fought the Law","I Saw Her Standing There","Boys","Route 66","The Last Time","Bad Moon Rising","Sixteen Candles","Hound Dog","Splish Splash","Love Potion No. 9","The Kids Are Alright","He Don't Love You","We Belong Together"];
+  var letters="ABCDEFGHJKLM";
+  var strips=document.getElementById('strips'), now=document.getElementById('now');
+  songs.forEach(function(s,i){
+    var code=letters[Math.floor(i/5)]+((i%5)+1);
+    var b=document.createElement('button');
+    b.type='button';b.className='strip';b.id='song-'+i;
+    b.innerHTML='<span class="code">'+code+'</span><span class="t"></span>';
+    b.querySelector('.t').textContent=s;
+    b.addEventListener('click',function(){
+      strips.querySelectorAll('.strip.on').forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');now.textContent=code+' · '+s;
+    });
+    strips.appendChild(b);
+  });
+  var t=document.getElementById('ticker'), picks=songs.slice(0,18);
+  for(var k=0;k<2;k++)picks.forEach(function(s){var sp=document.createElement('span');sp.textContent=s;t.appendChild(sp)});
+
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var el=document.getElementById(btn.dataset.copy), txt=el.textContent;
+      function ok(){btn.textContent='Copied';btn.classList.add('done');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('done')},1800)}
+      function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected'}
+      try{navigator.clipboard.writeText(txt).then(ok,fallback)}catch(e){fallback()}
+    });
+  });
+})();
+</script>
+
+
+</body>
+</html>
