@@ -171,13 +171,10 @@ nav .book:hover{background:var(--mustard);color:var(--ink)}
   background:repeating-linear-gradient(90deg,var(--mustard) 0 14px,var(--pink) 14px 28px,var(--teal) 28px 42px);border:3px solid var(--ink)}
 .display{background:var(--ink);color:var(--mustard);border-radius:12px;padding:12px 16px;margin-bottom:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-weight:800;letter-spacing:.06em;font-size:.95rem;min-height:48px;align-items:center}
 .display #now{color:var(--cream);letter-spacing:0;font-weight:600}
-.strips{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
-.strip{display:flex;align-items:stretch;background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-radius:6px;cursor:pointer;font:inherit;text-align:left;padding:0;overflow:hidden;transition:transform .12s}
-.strip:hover{transform:translateY(-2px)}
+.strips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.strip{display:flex;align-items:stretch;background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-radius:6px;font:inherit;text-align:left;padding:0;overflow:hidden;transition:transform .12s}
 .strip .code{flex:none;width:44px;display:grid;place-items:center;background:var(--mustard);font-weight:800;font-size:.8rem;border-right:2px solid var(--ink);font-variant-numeric:tabular-nums}
 .strip .t{padding:7px 10px;font-weight:600;font-size:.93rem;line-height:1.25;border-top:3px solid var(--cherry);flex:1;min-width:0}
-.strip.on{background:var(--pink)}
-.strip.on .code{background:var(--cherry);color:var(--cream)}
 .juke-foot{text-align:center;margin-top:18px;font-family:var(--script);font-size:1.6rem;color:var(--cream)}
 
 /* ---------- Listen ---------- */
@@ -311,7 +308,7 @@ footer small{opacity:.7}
     <ul>
       <li><a href="#about">The Band</a></li>
       <li><a href="#history">Then &amp; Now</a></li>
-      <li><a href="#jukebox">Jukebox</a></li>
+      <li><a href="#jukebox">Song List</a></li>
       <li><a href="#shows">Shows</a></li>
       <li class="keep"><a class="book" href="#book">Book Us</a></li>
     </ul>
@@ -455,16 +452,16 @@ footer small{opacity:.7}
 <section class="jukebox-sec" id="jukebox">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Drop a nickel in</p>
-      <h2>The Jukebox</h2>
-      <p>A taste of what we play. Pick a favorite and tell us when you book.</p>
+      <p class="eyebrow">The oldies goldies</p>
+      <h2>Songs We Play</h2>
+      <p>A look at our set list, from surf and rockabilly to doo-wop and the British invasion. Got a favorite for a first dance or a birthday? Ask about it when you book.</p>
     </div>
     <div class="juke-layout">
       <div class="photo"><img src="img/bass-wood.jpg" alt="" width="381" height="683" loading="lazy"></div>
       <div class="jukebox">
-        <div class="display" aria-live="polite"><span>NOW SELECTING</span><span id="now">Tap a title strip</span></div>
-        <div class="strips" id="strips"></div>
-        <p class="juke-foot">…and many more!</p>
+        <div class="display"><span>On the set list</span><span id="now"></span></div>
+        <ol class="strips" id="strips" aria-label="Songs we play"></ol>
+        <p class="juke-foot">…and many more! Just ask.</p>
       </div>
     </div>
   </div>
@@ -581,20 +578,15 @@ footer small{opacity:.7}
 <script>
 (function(){
   var songs=["California Sun","Rock Around the Clock","I'm a Believer","Come Go with Me","Surfin' USA","Let's Twist Again","Great Balls of Fire","Falling in Love","La Bamba / Twist and Shout","Roll Over Beethoven","Burning Love","That's All Right Mama / Night Train","Do You Want to Dance?","I Get Around","Pipeline","Lonesome Me","Secret Agent Man","Surfin' Safari","Johnny B. Goode","Runaway","Shut Down","409","Runaround Sue","Wear My Ring Around Your Neck","Daydream Believer","Sloop John B","Lost in the '50s Tonight","Wooly Bully","All Shook Up","Blue Suede Shoes","Walk of Life","This Boy","Walk Don't Run","Little GTO / Hey Little Cobra","Under the Boardwalk","No Particular Place to Go","Summertime Blues","Stand by Me","Carol","Last Kiss","I Fought the Law","I Saw Her Standing There","Boys","Route 66","The Last Time","Bad Moon Rising","Sixteen Candles","Hound Dog","Splish Splash","Love Potion No. 9","The Kids Are Alright","He Don't Love You","We Belong Together"];
-  var letters="ABCDEFGHJKLM";
   var strips=document.getElementById('strips'), now=document.getElementById('now');
   songs.forEach(function(s,i){
-    var code=letters[Math.floor(i/5)]+((i%5)+1);
-    var b=document.createElement('button');
-    b.type='button';b.className='strip';b.id='song-'+i;
-    b.innerHTML='<span class="code">'+code+'</span><span class="t"></span>';
-    b.querySelector('.t').textContent=s;
-    b.addEventListener('click',function(){
-      strips.querySelectorAll('.strip.on').forEach(function(x){x.classList.remove('on')});
-      b.classList.add('on');now.textContent=code+' · '+s;
-    });
-    strips.appendChild(b);
+    var li=document.createElement('li');
+    li.className='strip';
+    li.innerHTML='<span class="code" aria-hidden="true">'+(i+1)+'</span><span class="t"></span>';
+    li.querySelector('.t').textContent=s;
+    strips.appendChild(li);
   });
+  now.textContent=songs.length+' songs & counting';
   var t=document.getElementById('ticker'), picks=songs.slice(0,18);
   for(var k=0;k<2;k++)picks.forEach(function(s){var sp=document.createElement('span');sp.textContent=s;t.appendChild(sp)});
 
