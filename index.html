@@ -182,12 +182,15 @@ nav .book:hover{background:var(--mustard);color:var(--ink)}
 
 /* ---------- Listen ---------- */
 .listen-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:22px}
-.fortyfive{display:grid;gap:12px;justify-items:center;text-align:center}
+.fortyfive{display:grid;gap:12px;justify-items:center;align-content:start;text-align:center}
 .disc{width:150px;aspect-ratio:1;max-width:100%;border-radius:50%;
   background:radial-gradient(circle,var(--cream) 0 13%,var(--c,var(--teal)) 13.5% 34%,transparent 34.5%),repeating-radial-gradient(circle,#1a1420 0 2px,#2c2333 2px 4px);
   box-shadow:5px 5px 0 var(--ink);transition:transform .6s}
 .fortyfive:hover .disc{transform:rotate(200deg)}
 .fortyfive h3{font-size:1.15rem}
+a.fortyfive{color:inherit;text-decoration:none}
+.fortyfive .play{font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--cherry)}
+a.fortyfive:hover h3,a.fortyfive:focus-visible h3{text-decoration:underline}
 .fortyfive p{font-size:.85rem;color:var(--ink-soft);font-weight:600;text-transform:uppercase;letter-spacing:.1em}
 .listen-cta{margin-top:36px;display:flex;justify-content:center}
 
@@ -480,11 +483,11 @@ footer small{opacity:.7}
     <figure class="dance"><div class="photo"><img src="img/dancers.jpg" alt="A couple swing dancing on a brick plaza while the band plays at the gazebo behind them" width="450" height="800" loading="lazy"></div><figcaption>Proof the dance floor fills up</figcaption></figure>
     <div class="listen-main">
     <div class="listen-grid">
-      <div class="fortyfive"><div class="disc" style="--c:var(--teal)"></div><h3>Walk Don't Run</h3><p>Instrumental</p></div>
-      <div class="fortyfive"><div class="disc" style="--c:var(--cherry)"></div><h3>All Shook Up</h3><p>Rock 'n' roll</p></div>
+      <a class="fortyfive" href="https://drive.google.com/file/d/1xgmLtiipq9cmYeYdJup4EL1mTaUVFUJu/view" target="_blank" rel="noopener" aria-label="Listen to Walk Don't Run (opens audio in a new tab)"><div class="disc" style="--c:var(--teal)"></div><h3>Walk Don't Run</h3><p>Instrumental</p><span class="play">▶ Listen</span></a>
+      <a class="fortyfive" href="https://drive.google.com/file/d/18VxRaIgrcswFa1gYa55raYNs5scbCddd/view" target="_blank" rel="noopener" aria-label="Listen to All Shook Up (opens audio in a new tab)"><div class="disc" style="--c:var(--cherry)"></div><h3>All Shook Up</h3><p>Rock 'n' roll</p><span class="play">▶ Listen</span></a>
       <div class="fortyfive"><div class="disc" style="--c:var(--mustard)"></div><h3>California Sun</h3><p>Surf</p></div>
-      <div class="fortyfive"><div class="disc" style="--c:var(--pink)"></div><h3>I Saw Her Standing There</h3><p>British invasion</p></div>
-      <div class="fortyfive"><div class="disc" style="--c:var(--teal-deep)"></div><h3>Wear My Ring Around Your Neck</h3><p>Rockabilly</p></div>
+      <a class="fortyfive" href="https://drive.google.com/file/d/10NAmQ1zuLmj2vc1Yvt9lq7Kyextmv-Iw/view" target="_blank" rel="noopener" aria-label="Listen to I Saw Her Standing There (opens audio in a new tab)"><div class="disc" style="--c:var(--pink)"></div><h3>I Saw Her Standing There</h3><p>British invasion</p><span class="play">▶ Listen</span></a>
+      <a class="fortyfive" href="https://drive.google.com/file/d/1Z1As4exvTkseoi40HuI4PfVYr-_D2aZo/view" target="_blank" rel="noopener" aria-label="Listen to Wear My Ring Around Your Neck (opens audio in a new tab)"><div class="disc" style="--c:var(--teal-deep)"></div><h3>Wear My Ring Around Your Neck</h3><p>Rockabilly</p><span class="play">▶ Listen</span></a>
     </div>
     <div class="listen-cta">
       <a class="btn btn-red" href="https://www.youtube.com/channel/UCOU_YM8gVF-Dq3ZalZUo4PA" target="_blank" rel="noopener">▶ Watch on YouTube</a>
